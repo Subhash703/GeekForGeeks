@@ -19,3 +19,27 @@ int main() {
 	}
 	return 0;
 }
+
+//JAVA SOLUTION TO CHECK IF TWO STRINGS ARE ANAGRAM OR NOT 
+
+static boolean isAnagram(String a, String b) {
+        // Complete the function
+        a = a.toLowerCase();
+        b = b.toLowerCase();
+        // System.out.println(a);
+        // System.out.println(b);
+        int bool1[] = new int[26];
+        int bool2[] = new int[26];
+        for(int i = 0; i<a.length(); i++){
+            bool1[a.charAt(i)-'a']++;    //a[97-97]=1, a[98-97]=1;...so on
+        }
+        for(int i = 0; i<b.length(); i++){
+            bool2[b.charAt(i)-'a']++;
+        }
+        for(int i = 0; i<26; i++){            
+            if(bool1[i]!=bool2[i]){
+                return false;
+            }
+        }
+        return true;
+    }
